@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mydb:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432   
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust 
+      - POSTGRES_USER=lvs215
+    restart: always
+volumes:
+  db-data:
+    driver: local
