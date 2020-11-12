@@ -1,3 +1,7 @@
 venv
 2020_fgcs_aip.pgsql
 **/.ipynb_checkpoints
+**/__pycache__
+aip_tools/*.pdf
+aip_tools/*.gexf
+

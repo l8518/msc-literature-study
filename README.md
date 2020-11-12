@@ -1,6 +1,9 @@
 docker-compose up -d
 
 sudo apt -y install postgresql-client
+sudo apt -y install libpq-dev
+sudo apt -y install graphviz
+sudo apt -y install libgraphviz-dev
 
 wget https://atlarge-research.com/data/2020_fgcs_aip.pgsql
 
