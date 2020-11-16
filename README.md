@@ -1,6 +1,6 @@
 docker-compose up -d
 
-sudo apt -y install postgresql-client
+sudo apt -y install postgresql-client-12
 sudo apt -y install libpq-dev
 sudo apt -y install graphviz
 sudo apt -y install libgraphviz-dev
