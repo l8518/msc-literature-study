@@ -4,6 +4,7 @@ sudo apt -y install postgresql-client-12
 sudo apt -y install libpq-dev
 sudo apt -y install graphviz
 sudo apt -y install libgraphviz-dev
+sudo apt -y install python3-dev graphviz libgraphviz-dev pkg-config
 
 wget https://atlarge-research.com/data/2020_fgcs_aip.pgsql
 
