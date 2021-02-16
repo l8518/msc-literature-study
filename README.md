@@ -1,23 +1,19 @@
+# Atlarge literature study tool
+
+Define notebook password:
 ```bash
-docker-compose up -d
+python3 generate_token -p S-E-C-R-E-T
+```
+Put result in `ACCESS_TOKEN` in `.env` file. 
 
-sudo apt -y install postgresql-client-12
-sudo apt -y install libpq-dev python3-dev graphviz libgraphviz-dev pkg-config
-
+Build database
+```bash
+cd db-init-scripts
 wget https://atlarge-research.com/data/2020_fgcs_aip.pgsql
-
-psql -h localhost -U lvs215 < 2020_fgcs_aip.pgsql
 ```
 
-# python stuff
-
-`python3 -m venv venv`
-
-activate venv
-
-`pip3 install -r requirements.txt`
-
-# Jupyter
-
-`jupyter-lab`
-
+Run notebook + db
+```bash
+cd ..
+docker-compose up -d
+```

@@ -1,15 +1,32 @@
 version: '3'
 services:
-  mydb:
+  jupyter:
+    build: .
+    volumes:
+      - ${LOCAL_WORKING_DIR}:/home/jovyan/work
+      - ${LOCAL_DATASETS}:/home/jovyan/work/datasets
+    ports:
+      - ${PORT}:8888
+    container_name: jupyter_notebook
+    command: "start-notebook.sh \
+          --NotebookApp.password=${ACCESS_TOKEN}"
+    depends_on:
+      - postgres
+
+  postgres:
     image: postgres:12
     volumes:
       - db-data:/var/lib/postgresql/data
+      - ./db-init-scripts:/docker-entrypoint-initdb.d
     ports:
-      - 5432:5432   
+      - 5431:5432
     environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust 
-      - POSTGRES_USER=lvs215
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     restart: always
+
 volumes:
   db-data:
     driver: local
